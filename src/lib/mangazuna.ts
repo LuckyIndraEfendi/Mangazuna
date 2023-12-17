@@ -1,0 +1,2 @@
+export const NEXT_MANGAZUNA_APIURL = process.env.NEXT_MANGAZUNA_APIURL;
+export const NEXT_MANGAZUNA_APIKEY = process.env.NEXT_MANGAZUNA_APIKEY;

@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&family=Montserrat:wght@300&family=Noto+Sans:wght@700&family=Open+Sans:wght@300&family=Outfit:wght@800&family=Passion+One&family=Roboto:wght@300&display=swap");
+
+@import "nprogress/nprogress.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#nprogress .bar {
+  background: #ff7f57 !important;
+  padding: 0 10px !important;
+  height: 3px !important;
+  box-shadow: none;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #ff7f57 !important;
+}
+#nprogress .spinner .spinner-icon {
+  border-top-color: #ff7f57;
+  border-left-color: #ff7f57;
+}
+body {
+  background: #14161b;
+  overflow-x: hidden;
+}
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
