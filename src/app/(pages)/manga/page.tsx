@@ -4,7 +4,6 @@ import { fetchKomik } from "@/action/fetchKomik";
 import Loadmore from "@/components/Loadmore";
 import Navbar from "@/components/Navbar";
 import siteMetadata from "@/lib/seo/siteMetadata";
-import { Metadata } from "next";
 
 type DataFetch = {
   title: string;
