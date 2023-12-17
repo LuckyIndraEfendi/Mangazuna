@@ -1,7 +1,7 @@
 import NavLink from "./navlink/NavLink";
 const Footer: React.FC = () => {
   return (
-    <footer className="flex-col w-full mt-20 hidden sm:block">
+    <footer className="flex-col w-full mt-20 ">
       <div className="text-[#dbdcdd] z-40 bg-[#0c0d10] dark:bg-[#0c0d10] lg:flex lg:h-[12rem] w-full lg:items-center lg:justify-between">
         <div className="mx-auto flex w-[90%] lg:w-[95%] xl:w-[80%] flex-col space-y-10 py-6 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:py-0">
           <div className="flex flex-col gap-2">
