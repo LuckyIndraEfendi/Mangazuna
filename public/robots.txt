@@ -6,4 +6,4 @@ User-agent: Bingbot
 Allow : /
 Disallow:
 
-Sitemap: https://mangazuna.xyz/sitemap.xml
+Sitemap: https://www.mangazuna.xyz/sitemap.xml
