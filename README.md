@@ -71,7 +71,7 @@
 
 ## Bug Report
 
-If you encounter any issues or bug on the site please head to [issues](https://github.com/LuckyIndraEfendi/KyoukaLive/issues) and create a bug report there.
+If you encounter any issues or bug on the site please head to [issues](https://github.com/LuckyIndraEfendi/Mangazuna/issues) and create a bug report there.
 
 ## For Local Development
 
