@@ -16,3 +16,18 @@ export const navlink = [
     name: "Manhwa",
   },
 ];
+
+export const navlinkMobile = [
+  {
+    path: "/",
+    name: "Home",
+  },
+  {
+    path: "/manga",
+    name: "Manga",
+  },
+  {
+    path: "/manhua",
+    name: "Manhua",
+  },
+];

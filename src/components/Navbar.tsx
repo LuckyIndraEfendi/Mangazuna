@@ -1,18 +1,73 @@
 "use client";
-import Link from "next/link";
 import DialogAlert from "./ui/DialogAlert";
 import useModal from "@/hooks/useModal";
 import { usePathname } from "next/navigation";
-import { navlink } from "./utils/NavLink";
+import { navlink, navlinkMobile } from "./utils/NavLink";
 import { useSession, signOut } from "next-auth/react";
 import NavLink from "./navlink/NavLink";
+import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
 const Navbar = () => {
   const { handleOpen, open, setOpen } = useModal();
+  const [openMenu, setOpenMenu] = useState(false);
   const path = usePathname();
   const { data: session }: any = useSession();
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <>
       <DialogAlert handler={handleOpen} open={open} setOpen={setOpen} />
+
+      <div className="navbarMobile relative w-[90%] sm:hidden ">
+        <div className=" fixed bottom-10 right-5 flex gap-3 z-20 items-center ">
+          {openMenu ? (
+            <div className="bg-[#272931] flex gap-3 px-3 rounded-md">
+              {navlinkMobile.map((item, i) => (
+                <NavLink
+                  key={i}
+                  href={item.path}
+                  className={`px-2 py-3 ${
+                    path === item.path ? "text-[#FF7F57]" : "text-gray-300"
+                  }  font-karla font-medium text-sm`}
+                >
+                  {item.name}
+                </NavLink>
+              ))}
+              {session ? (
+                <NavLink
+                  href="/auth/sign-in"
+                  className={`px-2 py-3 text-white  font-karla font-medium text-sm`}
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  href="/auth/sign-in"
+                  className={`px-2 py-3 ${
+                    path === "/auth/sign-in" || "/auth/sign-up"
+                      ? "text-[#FF7F57]"
+                      : "text-gray-300"
+                  }  font-karla font-medium text-sm`}
+                >
+                  Sign-In
+                </NavLink>
+              )}
+            </div>
+          ) : (
+            ""
+          )}
+
+          <div
+            className="hamburger bg-[#272931] p-1 rounded-md hover:cursor-pointer"
+            onClick={handleOpenMenu}
+          >
+            <IoMenu className="text-[#FF7F57] text-4xl" />
+          </div>
+        </div>
+      </div>
+
       <header>
         <nav className="w-[90%] m-auto sm:py-5 flex gap-3 items-center justify-between mt-8 ">
           <div className="flex items-center gap-14 justify-between ">
