@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   verification: {
     google: "ZTAB2XPIHmaKEMy1L7gAM6JEVf7ZGJzND4xJGldQcCU",
   },
+  keywords:
+    "Mangazuna,mangazuna, manga, mangakakalot,mangafire,manga plus,manga anime, manhwa app,manhwa,moopa,kiryu,manganato",
   icons: [
     {
       rel: "icon",
