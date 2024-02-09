@@ -1,0 +1,18 @@
+#customScrollThumb {
+    scrollbar-width: thin;
+    scrollbar-color: #666 transparent;
+    overflow-y: scroll;
+  }
+  
+  #customScrollThumb::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #customScrollThumb::-webkit-scrollbar-thumb {
+    background-color: #534c4f;
+    border-radius: 10px;
+  }
+  
+  #customScrollThumb::-webkit-scrollbar-track {
+    background-color: transparent;
+  }

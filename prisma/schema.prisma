@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String     @id @default(cuid())
+  username      String
+  email         String     @unique
+  password      String
+  bio           String?    @default("I Like Mangazuna")
+  emailVerified DateTime?
+  image         String?    @default("https://res.cloudinary.com/dyr5sva6n/image/upload/v1702635115/profile/profile_temmit.jpg")
+  role          ROLE       @default(USER)
+  createdAt     DateTime   @default(now())
+  bookmarks     Bookmark[]
+
+  @@map("user")
+}
+
+model Bookmark {
+  id             String  @id @default(cuid())
+  title          String
+  image          String
+  url            String
+  rating         String
+  total_chapters Int
+  userId         String?
+  user           User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("bookmark")
+}
+
+enum ROLE {
+  ADMIN
+  USER
+}

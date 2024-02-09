@@ -1,0 +1,9 @@
+User-agent: Googlebot
+Allow : /
+Disallow:
+
+User-agent: Bingbot
+Allow : /
+Disallow:
+
+Sitemap: https://www.mangazuna.xyz/sitemap.xml

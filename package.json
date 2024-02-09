@@ -1,0 +1,50 @@
+{
+  "name": "mangazuna",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npx prisma migrate deploy && npx prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
+    "@material-tailwind/react": "^2.1.5",
+    "@prisma/client": "^5.8.1",
+    "axios": "^1.6.2",
+    "bcrypt": "^5.1.1",
+    "disqus-react": "^1.1.5",
+    "framer-motion": "^10.16.16",
+    "ioredis": "^5.3.2",
+    "moment": "^2.29.4",
+    "next": "14.0.4",
+    "next-auth": "^4.24.5",
+    "nprogress": "^0.2.0",
+    "qrcode.react": "^3.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.2",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.12.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-loader-spinner": "^6.1.0",
+    "swiper": "^11.0.5",
+    "swr": "^2.2.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20",
+    "@types/nprogress": "^0.2.3",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "prisma": "^5.7.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
