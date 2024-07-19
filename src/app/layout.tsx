@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   description: siteMetadata.description,
   verification: {
-    google: "ZTAB2XPIHmaKEMy1L7gAM6JEVf7ZGJzND4xJGldQcCU",
+    google: "szmpKHR7f-jtqxvxFdvK",
   },
   keywords:
     "Mangazuna,mangazuna, manga, mangakakalot,mangafire,manga plus,manga anime, manhwa app,manhwa,moopa,kiryu,manganato",
