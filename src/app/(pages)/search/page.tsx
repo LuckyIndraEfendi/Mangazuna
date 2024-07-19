@@ -1,5 +1,5 @@
 import BreadcumbPath from "@/components/ui/BreadcumbPath";
-import { fetchMangaByAdvSearch, fetchSearch } from "@/action/fetchKomik";
+import { fetchMangaAdvSearch } from "@/action/fetchKomik";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export async function generateMetadata({
   searchParams: any;
 }) {
   const query = searchParams?.q;
-  const getData = await fetchMangaByAdvSearch("", 1, query);
+  const getData = await fetchMangaAdvSearch(query);
   const ogImage = await getData?.data?.slice(0, 1).map((img: any) => {
     return img.banner ? img.banner : siteMetadata.socialBanner;
   });
@@ -58,7 +58,7 @@ const variant = {
 
 const page = async ({ searchParams }: { searchParams: any }) => {
   const query = searchParams?.q;
-  const getData = await fetchMangaByAdvSearch("", 1, query);
+  const getData = await fetchMangaAdvSearch(query);
   return (
     <>
       <Navbar />

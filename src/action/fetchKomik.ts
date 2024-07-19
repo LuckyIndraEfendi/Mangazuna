@@ -15,18 +15,28 @@ export const fetchLastUpdated = async (page: number) => {
   throw new Error("Error");
 };
 
-export const fetchMangaByAdvSearch = async (
-  type: string,
-  page: number,
-  title: string
-) => {
+export const fetchMangaByAdvSearch = async (type: string, page: number) => {
+  const response = await axios.get(
+    `${NEXT_MANGAZUNA_APIURL}/api/v1/manga/advsearch`,
+    {
+      params: {
+        page: page || 1,
+        type: type,
+      },
+    }
+  );
+  const data = await response.data;
+  if (data?.status === "success") {
+    return data;
+  }
+  throw new Error("Error");
+};
+export const fetchMangaAdvSearch = async (title: string) => {
   const response = await axios.get(
     `${NEXT_MANGAZUNA_APIURL}/api/v1/manga/advsearch`,
     {
       params: {
         title: title,
-        page: page || 1,
-        type: type,
       },
     }
   );
