@@ -1,5 +1,6 @@
 "use server";
 import { NEXT_MANGAZUNA_APIURL, NEXT_MANGAZUNA_APIKEY } from "@/lib/mangazuna";
+import axios from "axios";
 export const fetchLastUpdated = async (page: number) => {
   const response = await fetch(
     `${NEXT_MANGAZUNA_APIURL}/api/v1/manga/lastupdated?page=${page || 1}`,
@@ -14,16 +15,22 @@ export const fetchLastUpdated = async (page: number) => {
   throw new Error("Error");
 };
 
-export const fetchMangaByAdvSearch = async (type: string, page: number) => {
-  const response = await fetch(
-    `${NEXT_MANGAZUNA_APIURL}/api/v1/manga/advsearch?page=${
-      page || 1
-    }&type=${type}`,
+export const fetchMangaByAdvSearch = async (
+  type: string,
+  page: number,
+  title: string
+) => {
+  const response = await axios.get(
+    `${NEXT_MANGAZUNA_APIURL}/api/v1/manga/advsearch`,
     {
-      cache: "no-cache",
+      params: {
+        title: title,
+        page: page || 1,
+        type: type,
+      },
     }
   );
-  const data = await response.json();
+  const data = await response.data;
   if (data?.status === "success") {
     return data;
   }

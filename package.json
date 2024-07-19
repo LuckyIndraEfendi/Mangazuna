@@ -13,7 +13,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@material-tailwind/react": "^2.1.5",
     "@prisma/client": "^5.14.0",
-    "axios": "^1.6.2",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "disqus-react": "^1.1.5",
     "framer-motion": "^10.16.16",

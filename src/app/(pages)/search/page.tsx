@@ -1,5 +1,5 @@
 import BreadcumbPath from "@/components/ui/BreadcumbPath";
-import { fetchSearch } from "@/action/fetchKomik";
+import { fetchMangaByAdvSearch, fetchSearch } from "@/action/fetchKomik";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,8 +7,8 @@ import { MotionDiv } from "@/components/motion/MotionDiv";
 import siteMetadata from "@/lib/seo/siteMetadata";
 type DataFetch = {
   title: string;
-  image: string;
-  komik_id: string;
+  banner: string;
+  manga_slug: string;
   rating: string;
 };
 
@@ -17,9 +17,10 @@ export async function generateMetadata({
 }: {
   searchParams: any;
 }) {
-  const getData = await fetchSearch(searchParams?.q);
+  const query = searchParams?.q;
+  const getData = await fetchMangaByAdvSearch("", 1, query);
   const ogImage = await getData?.data?.slice(0, 1).map((img: any) => {
-    return img.image ? img.image : siteMetadata.socialBanner;
+    return img.banner ? img.banner : siteMetadata.socialBanner;
   });
   return {
     title: `${siteMetadata.title}`,
@@ -56,8 +57,8 @@ const variant = {
 };
 
 const page = async ({ searchParams }: { searchParams: any }) => {
-  const getData = await fetchSearch(searchParams?.q);
   const query = searchParams?.q;
+  const getData = await fetchMangaByAdvSearch("", 1, query);
   return (
     <>
       <Navbar />
@@ -82,7 +83,7 @@ const page = async ({ searchParams }: { searchParams: any }) => {
             className={`contentSearch grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-5 mt-10`}
           >
             {getData?.data?.map((item: DataFetch, i: number) => (
-              <Link href={`/komik${item?.komik_id}`} key={i}>
+              <Link href={`${item?.manga_slug}`} key={i}>
                 <MotionDiv
                   className="item group"
                   variants={variant}
@@ -97,7 +98,9 @@ const page = async ({ searchParams }: { searchParams: any }) => {
                 >
                   <div className="images rounded-md overflow-hidden  ">
                     <Image
-                      src={item?.image ? item.image?.replace(/\?.*$/, "") : ""}
+                      src={
+                        item?.banner ? item?.banner?.replace(/\?.*$/, "") : ""
+                      }
                       loading="lazy"
                       alt={item?.title}
                       width={300}

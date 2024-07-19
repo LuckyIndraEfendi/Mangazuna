@@ -1,14 +1,7 @@
 "use client";
-import type { DialogProps } from "@material-tailwind/react";
-import {
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  Button,
-} from "@material-tailwind/react";
+import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import useModal from "@/hooks/useModal";
 import { FormEvent, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
@@ -17,25 +10,28 @@ import "./style.css";
 import NavLink from "../navlink/NavLink";
 type DataFetch = {
   title: string;
-  image: string;
-  komik_id: string;
+  banner: string;
+  manga_slug: string;
   rating: string;
 };
 const DialogAlert = ({ handler, open, setOpen }: any) => {
   const { setSearch, search } = useModal();
   const [data, setData] = useState([]);
   const [loading, setIsLoading] = useState(false);
-  const handleSubmitSearch = async (e: FormEvent<EventTarget>) => {
+  const handleSubmitSearch = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.get("/api/mangazuna/search", {
+      const response = await axios.get("/api/mangazuna/advsearch", {
         params: {
-          q: search,
+          title: search,
         },
       });
       const data = await response.data;
-      setData(data?.data);
+      if (data?.status == "success") {
+        setData(data?.data);
+        setIsLoading(false);
+      }
       setIsLoading(false);
     } catch (err) {
       console.log(err);
@@ -111,7 +107,7 @@ const DialogAlert = ({ handler, open, setOpen }: any) => {
             >
               <ul className="listSearch py-2">
                 {data?.map((item: DataFetch, i: number) => (
-                  <NavLink href={`/komik${item?.komik_id}`} key={i}>
+                  <NavLink href={`${item?.manga_slug}`} key={i}>
                     <MotionDiv
                       className="item group"
                       variants={variant}
@@ -127,8 +123,8 @@ const DialogAlert = ({ handler, open, setOpen }: any) => {
                       <li className="flex gap-2 hover:bg-[#3a3e4b] cursor-pointer">
                         <div className="logo px-2 py-1">
                           <Image
-                            src={item.image.replace(/\?.*$/, "")}
-                            alt={item.title}
+                            src={item?.banner.replace(/\?.*$/, "")}
+                            alt={item?.title}
                             width={500}
                             loading="lazy"
                             height={500}
