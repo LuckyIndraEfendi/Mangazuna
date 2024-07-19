@@ -1,9 +1,4 @@
-User-agent: Googlebot
-Allow : /
-Disallow:
-
-User-agent: Bingbot
-Allow : /
+User-agent: *
 Disallow:
 
 Sitemap: https://www.mangazuna.xyz/sitemap.xml
