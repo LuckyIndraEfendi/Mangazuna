@@ -69,9 +69,13 @@
   - Comment section
 - Profile page to see your watch list
 
-## Bug Report
+## API URL For Mangazuna
 
-If you encounter any issues or bug on the site please head to [issues](https://github.com/LuckyIndraEfendi/Mangazuna/issues) and create a bug report there.
+1. API URL For Mangazuna :
+
+```bash
+NEXT_MANGAZUNA_APIURL="https://mangazuna.luckyindraefendi.me"
+```
 
 ## For Local Development
 
@@ -96,8 +100,7 @@ DATABASE_URL="Using Provider MySQL Prisma"
 NEXTAUTH_URL="Your Domain or localhost for Development"
 NEXTAUTH_JWT_SECRET="Your Next Auth JWT Secret"
 NEXTAUTH_SECRET="Your Next Auth Secret"
-NEXT_MANGAZUNA_APIURL="DM me for get API URL"
-NEXT_MANGAZUNA_APIKEY="DM me for get API KEY"
+NEXT_MANGAZUNA_APIURL="https://mangazuna.luckyindraefendi.me"
 NEXT_PUBLIC_DISQUS_SHORTNAME="Your Disqus Shortname"
 ```
 

@@ -4,6 +4,5 @@ DATABASE_URL = "Using Provider MySQL Prisma";
 NEXTAUTH_URL = "Your Domain or localhost for Development";
 NEXTAUTH_JWT_SECRET = "Your Next Auth JWT Secret";
 NEXTAUTH_SECRET = "Your Next Auth Secret";
-NEXT_MANGAZUNA_APIURL = "DM me for get API URL";
-NEXT_MANGAZUNA_APIKEY = "DM me for get API KEY";
+NEXT_MANGAZUNA_APIURL="https://mangazuna.luckyindraefendi.me";
 NEXT_PUBLIC_DISQUS_SHORTNAME = "Your Disqus Shortname";
