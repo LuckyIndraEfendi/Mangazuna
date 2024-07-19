@@ -1,7 +1,7 @@
 import { fetchLastUpdated } from "@/action/fetchKomik";
 import { MetadataRoute } from "next";
 
-const MAX_PAGES = 50;
+const MAX_PAGES = 20;
 
 const fetchAllLatestData = async (): Promise<any[]> => {
   let allData: any[] = [];
