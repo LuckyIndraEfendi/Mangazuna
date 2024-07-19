@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: any) {
         .replace(/\b\w/g, (firstChar: string) => firstChar.toUpperCase())
     : "";
   return {
-    title: title,
-    description: siteMetadata.description,
+    title: getData?.data?.title,
+    description: getData?.data?.description,
     icons: [
       {
         rel: "icon",
@@ -23,21 +23,21 @@ export async function generateMetadata({ params }: any) {
         url: "/favicon.png",
       },
     ],
-    // openGraph: {
-    //   title: title,
-    //   description: getData.synopsis.slice(0, 300),
-    //   url: `${siteMetadata.siteUrl}/komik/details/${id}`,
-    //   siteName: title,
-    //   images: [getData.images],
-    //   locale: "en_US",
-    //   type: "website",
-    // },
-    // twitter: {
-    //   card: "summary_large_image",
-    //   title: title,
-    //   description: siteMetadata.description,
-    //   images: [getData.images],
-    // },
+    openGraph: {
+      title: getData?.data?.title,
+      description: getData?.data?.description?.slice(0, 300),
+      url: `${siteMetadata.siteUrl}/manga/${id}`,
+      siteName: getData?.data?.title,
+      images: [getData?.data?.banner],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: getData?.data?.description?.slice(0, 300),
+      images: [getData?.data?.banner],
+    },
   };
 }
 
