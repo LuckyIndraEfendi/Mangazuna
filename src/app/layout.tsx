@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     default: siteMetadata.title,
   },
   description: siteMetadata.description,
+  manifest: "/manifest.webmanifest",
   verification: {
     google: "szmpKHR7f-jtqxvxFdvK7ismjGCuN8yGnF9JoBy_SW0",
   },
